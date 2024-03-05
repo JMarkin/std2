@@ -31,10 +31,10 @@ def _uuid_bytes() -> bytes:
 def add_functions(conn: Connection) -> None:
     conn.row_factory = Row
     conn.create_collation("X_COLLATION", strcoll)
-    conn.create_function("X_STRXFRM", narg=1, func=strxfrm, deterministic=True)
-    conn.create_function("X_NORMALIZE", narg=1, func=_normalize, deterministic=True)
-    conn.create_function("X_LOWER", narg=1, func=_lower, deterministic=True)
-    conn.create_function("X_UUID_B", narg=0, func=_uuid_bytes, deterministic=False)
+    conn.create_function("X_STRXFRM", 1, func=strxfrm, deterministic=True)
+    conn.create_function("X_NORMALIZE", 1, func=_normalize, deterministic=True)
+    conn.create_function("X_LOWER", 1, func=_lower, deterministic=True)
+    conn.create_function("X_UUID_B", 0, func=_uuid_bytes, deterministic=False)
 
 
 def add_conversion() -> None:
